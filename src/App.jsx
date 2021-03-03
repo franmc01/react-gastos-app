@@ -1,6 +1,7 @@
 import React from 'react';
 import Formulario from './components/Fomulario';
 import Pregunta from './components/Pregunta'
+import Listado from './components/Listado'
 
 function App() {
 
@@ -30,7 +31,7 @@ function App() {
                     <Formulario agregarNuevosGastos={agregarNuevosGastos} />
                   </div>
                   <div className="one-half column">
-                    2
+                    <Listado gastos={gastos}/>
                   </div>
                 </div>
               )
