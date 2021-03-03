@@ -1,5 +1,5 @@
 import React from 'react'
-import ItemGasto from './gasto-item'
+import ItemGasto from './GastoItem'
 
 const Listado = ({ gastos }) => {
     return (
