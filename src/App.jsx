@@ -17,12 +17,12 @@ function App() {
   React.useEffect(() => {
     if (ejecutar) {
       setGastos([...gastos, gasto]);
-      const pr = presupuesto - gasto.cantidad;
+      const pr = restante - gasto.cantidad;
       setRestante(pr);
       setEjecutar(false)
     }
 
-  }, [gasto, ejecutar, gastos, presupuesto])
+  }, [gasto, ejecutar, gastos, restante])
 
   return (
     <div className="App">
