@@ -5,7 +5,7 @@ const ItemGasto = ({gasto}) => {
         <tr>
             <td>{gasto.tipo}</td>
             <td>{gasto.nombre}</td>
-            <td>{gasto.cantidad}</td>
+            <td>$ {gasto.cantidad}</td>
         </tr>
     );
 }

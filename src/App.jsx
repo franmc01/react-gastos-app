@@ -2,6 +2,7 @@ import React from 'react';
 import Formulario from './components/Fomulario';
 import Pregunta from './components/Pregunta'
 import Listado from './components/Listado'
+import ControlPresupuesto from './components/ControlPresupuesto'
 
 function App() {
 
@@ -9,11 +10,19 @@ function App() {
   const [restante, setRestante] = React.useState(0);
   const [pregunta, setPregunta] = React.useState(true);
   const [gastos, setGastos] = React.useState([]);
+  const [gasto, setGasto] = React.useState({});
+  const [ejecutar, setEjecutar] = React.useState(false);
 
-  //Almacenar gastos
-  const agregarNuevosGastos = gasto => {
-    setGastos([...gastos, gasto]);
-  }
+  //Con este hook actualizameros el restante
+  React.useEffect(() => {
+    if (ejecutar) {
+      setGastos([...gastos, gasto]);
+      const pr = presupuesto - gasto.cantidad;
+      setRestante(pr);
+      setEjecutar(false)
+    }
+
+  }, [gasto, ejecutar, gastos, presupuesto])
 
   return (
     <div className="App">
@@ -23,15 +32,16 @@ function App() {
           {
             pregunta ? (
               <Pregunta setRestante={setRestante}
-                        setPresupuesto={setPresupuesto}
-                        setPregunta={setPregunta} />
+                setPresupuesto={setPresupuesto}
+                setPregunta={setPregunta} />
             ) : (
                 <div className="row">
                   <div className="one-half column">
-                    <Formulario agregarNuevosGastos={agregarNuevosGastos} />
+                    <Formulario setGasto={setGasto} setEjecutar={setEjecutar} />
                   </div>
                   <div className="one-half column">
-                    <Listado gastos={gastos}/>
+                    <Listado gastos={gastos} />
+                    <ControlPresupuesto presupuesto={presupuesto} restante={restante} />
                   </div>
                 </div>
               )

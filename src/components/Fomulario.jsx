@@ -2,7 +2,7 @@ import React from 'react';
 import Error from './Error';
 import shortid from 'shortid';
 
-const Formulario = ({ agregarNuevosGastos }) => {
+const Formulario = ({ setGasto, setEjecutar }) => {
 
     const [nombre, setNombre] = React.useState('');
     const [cantidad, setCantidad] = React.useState(0);
@@ -25,8 +25,8 @@ const Formulario = ({ agregarNuevosGastos }) => {
             id: shortid.generate()
         }
 
-        console.log(gasto)
-        agregarNuevosGastos(gasto);
+        setGasto(gasto);
+        setEjecutar(true)
 
 
         setNombre('');
