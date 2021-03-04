@@ -1,6 +1,8 @@
 import React from 'react';
 import Error from './Error';
 import shortid from 'shortid';
+import PropTypes from 'prop-types'
+
 
 const Formulario = ({ setGasto, setEjecutar }) => {
 
@@ -79,6 +81,11 @@ const Formulario = ({ setGasto, setEjecutar }) => {
                 value="Agregar gasto" />
         </form>
     );
+}
+
+Formulario.prototype = {
+    setGasto: PropTypes.func.isRequired,
+    setEjecutar: PropTypes.func.isRequired
 }
 
 export default Formulario;

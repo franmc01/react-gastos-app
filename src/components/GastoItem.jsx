@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types'
+
 
 const ItemGasto = ({gasto}) => {
     return (
@@ -9,5 +11,10 @@ const ItemGasto = ({gasto}) => {
         </tr>
     );
 }
+
+ItemGasto.prototype = {
+    gasto: PropTypes.object.isRequired,
+}
+
 
 export default ItemGasto;

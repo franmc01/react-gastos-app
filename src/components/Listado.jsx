@@ -1,5 +1,7 @@
 import React from 'react'
 import ItemGasto from './GastoItem'
+import PropTypes from 'prop-types'
+
 
 const Listado = ({ gastos }) => {
     return (
@@ -21,6 +23,10 @@ const Listado = ({ gastos }) => {
             </table>
         </div>
     );
+}
+
+Listado.prototype = {
+    gastos: PropTypes.array.isRequired,
 }
 
 export default Listado;
